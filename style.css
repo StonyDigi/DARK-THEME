@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center; /*vertikális középre igazítás*/
+    justify-content: center;/*horizontális középre igazítás*/
+    margin: 0;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.8s linear;
+}
+
+#text {
+    width: 80%;
+    text-align: center;
+}
+
+.label {
+    background: black;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*Mind a három elem között horizontálisan egyenlő távolságot fog köztük tartani*/
+    position: relative; /*pos.absolute a böngésző bal felső sarkából kezdi a számolást, kiváve, ha van mellette egy relative elem és onnantól kezdve onnantól kezdi a számolást!*/
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.ball {
+    position: absolute; /*labelhez képest hol helyezkedjen el*/
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%; /*ha egységes a width + height akkor a kockából lesz egy kör!*/
+    transition: transform 0.2s linear; /*a formázott ball kör alakú div-em linearisan el fog tudni mozdulni(csúszka)*/ 
+}
+
+/*+ - testvér elem kijelölés*/
+/*Checbox elemem állapota checked(csak akkor, ha be van pipálva) akkor annak a label testvér elemét választom ki és azon belüli ball elemet! És az x tengely mentém eltolom balra, jobbra!*/
+.checkbox:checked + .label .ball  {
+transform: translateX(24px);
+}
+
+/*átlátszóváteszem a checkboxot, hogy ne lehessen látni a weblapon, mert csak a működése kellett nekem!*/
+.checkbox {
+    opacity: 0;
+}
+
+body.dark {
+    background: #292c35;
+    color: #fff;
+}
+
+.footer {
+    color: grey;
+
+    margin-top: 50px;
+}
+
